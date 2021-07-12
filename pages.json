@@ -1,0 +1,125 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/sso/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false,
+				"disableScroll": true
+			}
+
+		}, {
+			"path": "pages/sso/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"enablePullDownRefresh": false,
+				"disableScroll": true
+			}
+
+		}, {
+			"path": "pages/userCenter/user-center",
+			"style": {
+				// "navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "注销",
+							"fontSize": "14px"
+						}]
+					}
+				}
+			}
+		}, {
+			"path": "pages/quotation/quotation",
+			"style": {
+				"navigationBarTitleText": "报价管理",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 100,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#ffc72c", //小圈圈的颜色
+						"style": "circle" //小圈圈的样式
+					}
+				}
+			}
+		}, {
+			"path": "pages/quotation/add",
+			"style": {
+				"navigationBarTitleText": "新建报价",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/quotation/preview",
+			"style": {
+				"navigationBarTitleText": "报价单预览",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/contract/contract",
+			"style": {
+				"navigationBarTitleText": "合同管理",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 100,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#ffc72c",
+						"style": "circle"
+					}
+				}
+			}
+		}, {
+			"path": "pages/contract/add",
+			"style": {
+				"navigationBarTitleText": "新建合同",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/contract/preview",
+			"style": {
+				"navigationBarTitleText": "合同预览",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/userManage/user-manage",
+			"style": {
+				"navigationBarTitleText": "用户管理",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "RDD报价管理系统",
+		"navigationBarBackgroundColor": "#ffc72c",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#8c8c8c",
+		"selectedColor": "#ffc72c",
+		"borderStyle": "#8c8c8c",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/quotation/quotation"
+		}, {
+			"pagePath": "pages/contract/contract"
+		}, {
+			"pagePath": "pages/userManage/user-manage"
+		}, {
+			"pagePath": "pages/userCenter/user-center"
+		}]
+	}
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=0.35">
+		<title>合同预览</title>
+	</head>
+	<body>
+		<button class="operate-btn" onclick="downPdf()">生成pdf</button>
+		<div id="pdf-page" style="width: 960rpx">
+			<div class="view-page">
+				<div class="logo">
+					<img style="width: 200px; height: 100%" src="./img/Epiroc_Logos_Gray.png" />
+				</div>
+				<div class="header">
+					<div class="title">安百拓贸易有限公司</div>
+					<div class="sub-title">销售合同</div>
+					<div class="header-block">
+						<div class="block-row">
+							<div class="block-col"></div>
+							<div class="block-ghost"></div>
+							<div class="block-col" id="contractCode"></div>
+						</div>
+						<div class="block-row">
+							<div class="block-col"></div>
+							<div class="block-ghost"></div>
+							<div class="block-col">签订地点：南京市</div>
+						</div>
+						<div class="block-row">
+							<div class="block-col"></div>
+							<div class="block-ghost"></div>
+							<div class="block-col">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期：</div>
+						</div>
+					</div>
+					<div class="header-block">
+						<div class="block-row">
+							<div class="block-col" id="customInfo"></div>
+							<div class="block-ghost"></div>
+							<div class="block-col" id="customInfoEx"></div>
+						</div>
+					</div>
+					<div class="header-block">
+						<div class="block-row">
+							<div class="block-col" id="customInfo">
+								卖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方：安百拓贸易有限公司</br>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：江苏省南京市经济开发区恒泰路2号</br>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：025-86967800</div>
+							<div class="block-ghost"></div>
+							<div class="block-col"></br>邮政编码：210038</br>传&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真：025-86967850
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content">
+					<div class="content-text">
+						<div class="text-row">
+							<div class="text-col">
+								1. 买卖双方一致同意按照下列条款，由卖方出售、买方购进下列货物。清单详见附件报价单。
+							</div>
+						</div>
+						<div class="material-content">
+							<div class="material-table">
+								<div class="u-tr">
+									<div class="u-th" style="width: 30px;">序号</div>
+									<div class="u-th" style="width: 90px;">物料编号</div>
+									<div class="u-th" style='width: 365px;'>商品名称及规格</div>
+									<div class="u-th" style='width: 79px;'>数量（个/件）</div>
+									<div class="u-th" style="width: 99px;">面价（RMB）</div>
+									<div class="u-th" style="width: 99px;">单价（RMB）</div>
+									<div class="u-th" style="width: 99px;">总值（RMB）</div>
+									<div class="u-th" style="width: 99px;">运费（RMB）</div>
+								</div>
+								<div id="materialList"></div>
+								<div class="u-tr">
+									<div class="u-td" style="width: 480px; text-align: center;">小计</div>
+									<div class="u-td" style="width: 480px;" id="totalInTax"></div>
+								</div>
+								<div class="u-tr">
+									<div class="u-td" style="width: 480px; text-align: center;">运费</div>
+									<div class="u-td" style="width: 480px;" id="freightInTax"></div>
+								</div>
+								<div class="u-tr">
+									<div class="u-td" style="width: 480px; text-align: center;">折扣总计</div>
+									<div class="u-td" style="width: 480px;" id="discountInTax"></div>
+								</div>
+								<div class="u-tr">
+									<div class="u-td" style="width: 480px; text-align: center;">最终成交价金额（合同总额）</div>
+									<div class="u-td" style="width: 480px;" id="totalPriceInTax">物料编号</div>
+								</div>
+							</div>
+							<div class="text-row">
+								<div class="text-col" id="deliveryType"></div>
+							</div>
+						</div>
+						<div class="text-row">
+							<div class="text-col">
+								2. 生产厂家及产地：安百拓原厂供应。<br /><br />
+								<div class="input-text" id="deadLines"></div><br />
+								<div class="input-text" id="appointAddress"></div><br />
+								5. 运输及保险：卖方同意为买方办理运输和保险，运输费用及货物的保险费用包含在买方支付给卖方的货款中。<br /><br />
+								<div class="input-text" id="payType"></div>
+								特别约定：如发生买方未能按照本合同及时付款、或未能按照本合同约定提/收货等不按约履行本合同的情况，卖方有权解除合同并要求买方承担30%合同金额的违约金。<br />
+								特别约定：货物的所有权自买方付清货款后转移给买方，风险则自货物交付运输之时起转移。<br /></br>
+								合同第_1_条第一款中所示价格为电汇方式支付到期款项的约定价格,若买卖双方另行商定以卖方认可的银行承兑汇票支付到期款项,买方同意按照月息5‰向卖方支付款项到期日至汇票到期日期间的资金占用费，卖方向买方开具销售发票。在银行汇票到期后，如卖方未能从银行承兑到相应款项的，无论是由于遭到银行拒付还是银行未能在本合同约定的付款时间内及时承兑付款的，买方都应在收到卖方通知的5个工作日内将应付款项以电汇方式直接支付至卖方的指定账户内。如买方未能在5个工作日内电汇支付的，则每逾期1日，买方应向卖方支付相当于应付款0.5%的日违约金以及相关的法律费用（包括但不限于诉讼费、仲裁费、律师费）等。<br /><br />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="view-page">
+				<div style="height: 20px;"></div>
+				<div class="content">
+					<div class="content-text">
+						<div class="text-row">
+							<div class="text-col">
+								无论最终买方选择或买卖双方协商确定何种付款方式，买方均有义务按时足额向卖方支付货款，若迟延支付，每迟延一日，即应按照迟延付款总额的0.5%向卖方支付迟延违约金；若买方累计迟延支付超过30日的，卖方将有权选择（不影响对前述30日迟延违约金的主张）：（1）自累计迟延支付的第31日起，要求买方按照“迟延付款总额的1%/迟延日”的标准支付迟延违约金；或（2）随时无条件解除本合同，并有权要求买方支付迟延付款总额30%的违约金。本款权利的存在或行使将不影响上一条款（即关于银行承兑汇票付款的约定）所约定权利的行使。<br /><br />
+								7.
+								检验和索赔：货物从卖方工厂发出后，买方如发现货物的品质、规格、数量与合同的规定不符，除属于保险公司及/或运输公司的责任外，买方可以凭双方同意的检验机构出具的检验证明向卖方提出异议。任何异议需在发货后10天内提出，卖方应于收到异议后30天内作出答复并安排代表进行复验和检查，如确认无误，则卖方应予无偿地换货、补发短缺的零件，并将货物运至交货地点。买方未在上述时间内提出异议或者将货物投入使用的，应当视为验收合格。<br /><br />
+								8．质量保证期：自货物交付之日起3个月（不包含易损易耗件）。<br /><br />
+								9．争议解决：凡因执行本合同或有关本合同所发生的一切争执，由签订双方协商解决。如果双方经协商后仍不能得到解决，向卖方注册地的有管辖权的人民法院起诉。<br /><br />
+								10.
+								不可抗力：任何一方对由于下列原因而导致不能或暂时不能履行全部或部分合同义务的，不负违约责任：水灾、火灾、地震、干旱、战争或其它任何在签约时不能预料、无法控制且不能避免和克服的事件。但受不可抗力影响的一方，应尽快地将所发生的事件通知对方，并应在事件发生后15天内将有关机构出具的不可抗力事件的证明寄交对方。如果不可抗力事件之影响超过120天，双方应协商合同继续履行或终止履行的事宜。<br /><br />
+								10.1. 责任限制：
+								双方确认，对卖方交付货物质量不符合合同约定的，经多次修理后仍不符合要求的，卖方应当予以采取更换，由此产生的费用由卖方承担。但双方明确，卖方不对由此产生的买方间接损失,包括但不限于停产损失、销售损失、生产损失、利润损失以及向第三方承担的责任等承担责任。<br /><br />
+								11.
+								合同的解除<br />本合同自双方签字盖章后不得随意解除，除非发生如下情况：<br />1）本合同第10条规定的情况出现，双方经协商确定不再继续履行本合同；<br />2）一方明确声明或以行动表明将不履行本合同的主要义务，另一方有权要求解除本合同并且要求对方承担违约责任。<br />3）由本合同的任何其他条款所设定的情形。<br /><br />
+								12. 保密条款<br />1) 双方应对本合同的签订以及本合同的内容、价格及其它数据、软件、手册、说明书、文件、报告等进行严格的保密。<br />2)
+								双方交流期间对因工作需要而接触到的对方公司的技术信息、文件资料、记录表单、商业秘密等资料应负完全保密责任，在没有取得对方书面同意的情况下，不向第三方泄露。<br /><br />
+								13. 本合同自双方签字或盖章之日起生效。<br /><br />
+								14. 本合同正本与附件具备相同的法律效力。<br /><br />
+								15. 本合同经签字或盖章后的传真件或复印件与正本具有相同的法律效力。<br /><br />
+								16. 本合同一式四份 ，签约双方各执两份为凭。<br /><br />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="header">
+					<div class="header-block">
+						<div class="block-row">
+							<div class="block-col">买&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方（签&nbsp;&nbsp;字）
+							</div>
+							<div class="block-col">卖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方（签&nbsp;&nbsp;字）
+							</div>
+						</div>
+						<div class="block-row">
+							<div class="block-col"></div>
+							<div class="block-col">安百拓贸易有限公司</div>
+						</div>
+						<br />
+						<div class="block-row">
+							<div class="block-col">公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;章：</div>
+							<div class="block-col">公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;章：</div>
+						</div><br />
+						<div class="block-row">
+							<div class="block-col">开&nbsp;&nbsp;户&nbsp;&nbsp;行：</div>
+							<div class="block-col">
+								开&nbsp;&nbsp;户&nbsp;&nbsp;行：德意志银行（中国）有限公司上海分行
+							</div>
+						</div>
+						<div class="block-row">
+							<div class="block-col">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</div>
+							<div class="block-col">
+								账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：3545969015（RMB）
+							</div>
+						</div>
+						<div class="block-row">
+							<div class="block-col">税&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</div>
+							<div class="block-col">
+								税&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：91320100310571669P
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jspdf.umd.min.js"></script>
+<script src="https://cdn.bootcss.com/jspdf/1.3.4/jspdf.debug.js"></script>
+<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.1.js"></script> 
+<script src="./js/html2canvas.js"></script>
+<script type="text/javascript">
+	var contractCode = '', contractId = '', token = "";
+	function downPdf() {
+		uni.postMessage({
+			data: {id: contractId}
+		})
+	}
+
+	function generatePdf() {
+		var fileName = '合同-' + contractCode + '.pdf';
+		window.scrollTo(0, 0) //注意这里必须设置为顶部不然会出现图片不全
+		var that = this;
+		html2canvas(document.querySelector('#pdf-page'), { //对应的dom元素id
+			logging: false
+		}).then(function(canvas) {
+			var pdf = new jsPDF('p', 'mm', 'a4');
+			var ctx = canvas.getContext('2d'),
+				a4w = 190,
+				a4h = 277, //A4大小，210mm x 297mm，四边各保留10mm的边距，显示区域190x277
+				imgHeight = Math.floor(a4h * canvas.width / a4w), //按A4显示比例换算一页图像的像素高度
+				renderedHeight = 0;
+
+			while (renderedHeight < canvas.height) {
+				var page = document.createElement("canvas");
+				page.width = canvas.width;
+				page.height = Math.min(imgHeight, canvas.height - renderedHeight); //可能内容不足一页
+
+				//用getImageData剪裁指定区域，并画到前面创建的canvas对象中
+				page.getContext('2d').putImageData(ctx.getImageData(0, renderedHeight, canvas.width, Math
+					.min(imgHeight, canvas.height - renderedHeight)), 0, 0);
+				pdf.addImage(page.toDataURL('image/jpeg', 1.0), 'JPEG', 10, 10, a4w, Math.min(a4h, a4w *
+					page.height / page.width)); //添加图像到页面，保留10mm边距
+				renderedHeight += imgHeight;
+				if (renderedHeight < canvas.height) {
+					pdf.addPage(); //如果后面还有内容，添加一个空页
+				}
+			}
+			var dataurl = pdf.output('dataurlstring');
+			base64 = dataurl.split(',')
+			var type = base64[0].match(/:(.*?);/)[1]
+			var str = atob(base64[1])
+			var n = str.length
+			var array = new Uint8Array(n)
+			while (n--) {
+			    array[n] = str.charCodeAt(n)
+			}	
+			var file = new Blob([array], { type: type })	
+			var aafile = new File([file], fileName);
+			
+			 var data = new FormData();
+			    data.append("file" , aafile);
+				data.append("id" , contractId);
+			$.ajax({
+				url:'http://www.epirocchina.cn/rdd/contract/addPdf',
+				type: 'POST',
+				contentType:false,
+				headers:{'X-Access-Token': token},
+				//取消帮我们格式化数据，是什么就是什么
+				processData:false,
+				data: data,
+				dataType: 'json',
+				success:function(data) {
+				},
+				error:function(err) {
+					alert('传输文件错误！')
+				}
+			})
+		})
+	}
+
+	function getContract(data) {
+		var contractInfo = eval('(' + data + ')');
+		contractCode = contractInfo.contractCode;
+		contractId = contractInfo.id;
+		token = contractInfo.token;
+		document.getElementById('contractCode').innerHTML = "合同编号：" + contractCode;
+		var customer = contractInfo.customer;
+		document.getElementById('customInfo').innerHTML = "买&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方：" + customer.customer + "</br>" + "地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：" + customer
+			.address + "</br>" + "电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：" + customer.phone;
+		document.getElementById('customInfoEx').innerHTML = "</br>" + "邮政编码：" + customer.postalCode + "</br>" +
+			"传&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真：";
+		var deliveryInfo = contractInfo.deliveryInfo;
+		if (contractInfo.creditType === "credit") {
+			document.getElementById('deadLines').innerHTML = "3. 交货日期：合同生效后<span>" + deliveryInfo.deadLines +
+				"</span>天内交货。";
+			document.getElementById('payType').innerHTML =
+				"6. 付款条件 ：付款方式：买方为信用客户，在信用额度内，卖方先发货并开具全额增值税发票，买方收到增值税发票后<span>" + contractInfo
+				.creditDays +
+				"</span>天内付清全部货款；付款方式为：电汇至卖方指定账户。<br/><br/>特别约定：截至发货前，买方须确保（1）在卖方帐面没有历史交易所产生的逾期款项，（2）截至发货前，买方尚结欠卖方的未到期的欠款余额加上本合同项下设备发货后产生的欠款的总额不超过人民币<span>" +
+				customer.creditLine + "</span>万元；若前述两项条件未能全部满足，则在买方未能采取措施使得前述两项条件被全部满足前，卖方有权推迟发货直至前述两项条件被全部满足。<br/>";
+		} else {
+			document.getElementById('deadLines').innerHTML = "3. 交货日期：合同生效且收到预付款后<span>" + deliveryInfo.deadLines +
+				"</span>天内交货（发货前须付清全款）。";
+			document.getElementById('payType').innerHTML =
+				"6. 付款条件 ：付款方式：买方按照以下条款向卖方支付货款买方在本合同签订后3日内应当向卖方支付本合同总金额的<span>" + contractInfo
+				.prePercent + "</span>%，即人民币<span>" + ((contractInfo.prePercent * contractInfo.totalPriceInTax) / 100)
+				.toFixed(2) + "</span>元，作为预付款；剩余<span>" + contractInfo
+				.surplusPercent + "</span>%款项，即人民币<span>" + ((contractInfo.surplusPercent * contractInfo.totalPriceInTax) /
+					100).toFixed(2) +
+				"</span>元，发货前付清。付款方式为：电汇至卖方指定帐户。发货后，一个星期内开具增值税发票。<br/><br/>";
+		}
+		document.getElementById('appointAddress').innerHTML = "4. 交货地点：买方指定地址交货<span>" + deliveryInfo.provinceName +
+			deliveryInfo.urbanName +
+			deliveryInfo.regionName + deliveryInfo.streetName + deliveryInfo.address + "</span>，卖方负责安排运输, 买方负责安排装载货物。";
+		var materials = contractInfo.materials;
+		var trText = "";
+		for (var i = 0; i < materials.length; i++) {
+			var item = materials[i];
+			trText += "<div class='u-tr'><div class='u-td' style='width:30px;'>" + (i+1) +
+				"</div><div class='u-td' style='width:90px;'>" + item.partNumber +
+				"</div><div class='u-td' style='width:365px;'>" + item.materialName +
+				"</div><div class='u-td' style='width:79px;'>" + item.quantity +
+				"</div><div class='u-td' style='width:99px;'>" + item.salesPriceIncludingTax +
+				"</div><div class='u-td' style='width:99px;'>" + (item.agentIncludingTax * item.discount).toFixed(2) +
+				"</div><div class='u-td' style='width:99px;'>" + item.totalValue +
+				"</div><div class='u-td' style='width:99px;'>" + item.fee + "</div></div>"
+		}
+		document.getElementById('materialList').innerHTML = trText;
+		document.getElementById('totalInTax').innerHTML = "人民币：" + "<span style='width: 180px;display:inline-block;'></span>" + "RMB:" + contractInfo.totalInTax;
+		document.getElementById('freightInTax').innerHTML = "人民币：" + "<span style='width: 180px;display:inline-block;'></span>" + "RMB:" + contractInfo.freightInTax;
+		document.getElementById('discountInTax').innerHTML = "人民币：" + "<span style='width: 180px;display:inline-block;'></span>" + "RMB:" + contractInfo.discountInTax;
+		document.getElementById('totalPriceInTax').innerHTML = "人民币：" + "<span style='width: 180px;display:inline-block;'></span>" + "RMB:" + contractInfo.totalPriceInTax;
+		document.getElementById('deliveryType').innerHTML = contractInfo.deliveryType === '0' ? '分批发货' : '整单发货';
+		generatePdf()
+	};
+</script>
+<link rel="stylesheet" type="text/css" href="./css/preview-contract.css" />
+<style lang="scss" scoped>
+	.operate-btn {
+		position: fixed;
+		bottom: 3rem;
+		height: 6%;
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1.5rem;
+		z-index: 9999;
+		/* margin-bottom: 10px; */
+		background-color: #ffc72c;
+		border: 1px solid #ffc72c;
+		border-radius: 5px;
+		color: #fff;
+	}
+
+	.operate-btn:active {
+		box-shadow: 0px 5px 5px rgba(0,0,0,0.4);
+	}
+</style>

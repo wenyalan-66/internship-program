@@ -1,0 +1,71 @@
+.top-buttons {
+	display: flex;
+	
+	.btn-box {
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		align-items: center;
+	}
+	.create-btn {
+		position: relative;
+		margin-top: 20rpx;
+		width: 300rpx;
+		height: 60rpx;
+		line-height: 60rpx;
+		font-size: 24rpx;
+		background-color: #ffc72c;
+		border-radius: 0;
+		color: #fff;
+		}
+	
+	.create-btn:hover {
+		background-color: rgba($color: #ffc72c, $alpha: 0.6);
+	}
+}
+.quota-card {
+	color: #425563;
+	.flex-row {
+		display: flex;
+		.flex-item {
+			display: flex;
+			padding-block: 6rpx;
+		}
+		.customer-name {
+			flex: 2;
+			font-size: 24rpx;
+		}
+		.customer-code {
+			flex: 1;
+			justify-content: flex-end;
+			align-items: center;
+			font-size: 20rpx;
+		}
+		.create-by {
+			flex: 1;
+			font-size: 20rpx;
+		}
+		.create-time {
+			flex: 1;
+			font-size: 20rpx;
+			justify-content: flex-end;
+			align-items: center;
+		}
+		.update-btn {
+			flex: 1;
+			color: #ffc72c;
+			font-size: 20rpx;
+		}
+		.edit-btn {
+			flex: 1;
+			justify-content: flex-end;
+			color: #ffc72c;
+			font-size: 20rpx;
+		}
+	}
+}
+.bottom-tip {
+	text-align: center;
+	color: #ebe8e5;
+	margin-bottom: 60rpx;
+}
